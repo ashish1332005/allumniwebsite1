@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0e234c, #4a90e2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Login Container */
+  .login-container {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #333333;
+  }
+  
+  /* Logo */
+  .logo img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  /* Title */
+  h2 {
+    font-size: 22px;
+    color: #0e234c;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Groups */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #0e234c;
+    box-shadow: 0 0 8px rgba(14, 35, 76, 0.2);
+    outline: none;
+  }
+  
+  /* Forgot Password */
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 15px;
+  }
+  
+  .forgot-password a {
+    font-size: 14px;
+    color: #0e234c;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Buttons */
+  .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0e234c;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #081a37;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .facebook:hover {
+    background-color: #2d4373;
+  }
+  
+  .google {
+    background-color: #dd4b39;
+  }
+  
+  .google:hover {
+    background-color: #c23321;
+  }
+  
+  .twitter {
+    background-color: #00aced;
+  }
+  
+  .twitter:hover {
+    background-color: #0084b4;
+  }
+  
+  /* Signup Link */
+  .signup {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .signup a {
+    color: #0e234c;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .signup a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
