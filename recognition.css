@@ -3,22 +3,40 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+   font-family: 'lato';
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'lato', ;
+  font-family: 'lato', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color:#f5f5f5;
+  background-color: #f5f5f5; /* Subtle light background */
+  color: #030303; /* Primary text color */
+ 
+  margin: 0;
+  padding: 0;
+
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s;
 }
 
-a:hover {
-  color: #0056b3;
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Navbar */
@@ -29,33 +47,73 @@ a:hover {
   justify-content: space-between; /* Space out the logo and nav links */
   align-items: center;
   padding: 10px 20px; /* Reduced padding to make the navbar thinner */
-  background-color: #333; /* Deep blue for a professional look */
+  background-color:  #333; /* Deep blue for a professional look */
   color: #fff;
-  margin-top: 23px; /* Added some space above the navbar */
+  /* Added some space above the navbar */
   width: 100%;
   position:relative;
-height: 45px;
+height: 65px;
   z-index: 20;
-  height: 60;
+  margin-top: 0px;
+  
   
 }
+
+
 
 .navbar .logo {
   position:relative; /* Position the logo to the left */
 top: -9px;
 }
 
-.navbar .logo img {
-  max-height: 70px; /* Reduced logo height */
+
+
+
+@media (min-width: 1024px) {
+  .navbar .logo img {
+    max-height: 65px; /* Slightly larger for bigger screens */
+    margin-left: 200px;
+    margin-top: 24px;
+  }
 }
+
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .navbar .logo img {
+    max-height: 65px;
+    margin-left: 230px;
+    margin-top:35px ;
+  }
+}
+
+
+@media(max-width:768px){
+  .navbar .logo img {
+    max-height: 65px; /* Reduced logo height */
+    margin-top:auto ;
+    margin-left: 10px;
+    margin-top:25px ;
+
+  }
+  }
+
+  @media (max-width: 480px) {
+    .navbar .logo img {
+      max-height: 55px; /* Compact for very small screens */
+      margin-left: 1px;
+      margin-top: 24px;
+    }
+  }
+  
 
 .nav-links {
   display: flex;
-  gap: 50px;
+  gap: 35px;
   align-items: center;
   justify-content: center; /* Center the nav links horizontally */
   width: 100%;
   text-align: center; /* Ensure links are centered */
+  margin-left: -250px;
 }
 
 .nav-links .dropdown {
@@ -78,8 +136,8 @@ top: -9px;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #333;
-  color: #333;
+  background-color: #030303;
+  color: #0e234c;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
   min-width: 200px;
@@ -90,14 +148,11 @@ top: -9px;
 .nav-links .dropdown-content a {
   display: block;
   padding: 10px 15px;
-  border-bottom: 1px solid white;
-  color: white;
+
+  color: #030303;
   font-size: 14px;
 }
 
-.nav-links .dropdown-content a:hover {
-  background-color: #444;
-}
 
 .nav-links .dropdown:hover .dropdown-content {
   display:block;
@@ -111,7 +166,7 @@ top: -9px;
 }
 
 .nav-links a:hover {
-  background-color:#444;
+  background-color:#0975ab;
   border-radius: 5px;
 }
 
@@ -136,7 +191,7 @@ text-align: center;
   top: 20px;
   right: 20px;
   transition: transform 0.3s ease;
-  margin-top:-7px ;
+  margin-top:-4px ;
   position: absolute;
 }
 
@@ -169,22 +224,30 @@ text-align: center;
 
 
 
-  .nav-links {
+.nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 40px;
+    top: 63px;
     right: 0;
+
     width: 100%;
-    background-color: #333;
+    background-color: #ffffff;
     padding: 20px;
-    gap: 2px;
+    gap: 4px;
     opacity: 0;
     transform: translate(-40px);
     transition: height 0.4s ease, opacity 0.4s ease;
     z-index: 25;
     color: white;
     box-sizing: border-box;
+  }
+
+  @media (max-width: 480px) {
+    .nav-links {
+   top: 59px;
+   margin-left: -10px;
+    }
   }
 
   .nav-item,.nav-link {
@@ -203,33 +266,43 @@ text-align: center;
   }
 
 /* Main content */
-main {
+.main {
   margin-top: 60px; /* Push content below navbar */
+  position: relative; /* Allow shifting of content using top */
+
   transition: margin-top 0.4s ease; /* Smooth transition */
 }
 
 body.menu-open main {
-  margin-top: 260px; /* Adjust according to navbar + menu height */
+  margin-top: 26px; /* Adjust according to navbar + menu height */
 }
   
-
+/* Adjust for responsive design */
+@media (max-width: 768px) {
+  body.menu-open .main {
+    margin-top: 260px; /* Adjust this value for smaller screens if the menu is smaller */
+  }
+}
   .nav-links a {
     padding: 15px 20px;
     text-align: left;
-    color: white;
+    color: #030303;
     font-size: 18px;
     text-decoration: none;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #333;
     transition: background-color 0.3s ease;
   }
+  
 
   .nav-links a:hover {
-    background-color: #444;
+    background-color: #0975ab;
     color: #f1f1f1;
   }
 
+ 
   .nav-item {
     position: relative;
+   
   }
 
   .nav-item .nav-link {
@@ -238,15 +311,15 @@ body.menu-open main {
     align-items: left;
     padding: 12px 20px;
     font-size: 18px;
-    color: white;
+    color: #030303;
     text-decoration: none;
     cursor: pointer;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #333;
     transition: all 0.3s ease;
   }
 
   .nav-item .nav-link:hover {
-    background-color: #333;
+    background-color: #0975ab;
   }
 
   .nav-item .arrow {
@@ -258,7 +331,7 @@ body.menu-open main {
     display: none; /* Initially hide the dropdown */
     flex-direction: column;
     padding: 10px;
-    background-color: #333;
+    background-color: #ffffff;
     border-radius: 8px;
     margin-top: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
@@ -275,15 +348,21 @@ body.menu-open main {
   .nav-item .dropdown a {
     padding: 10px 15px;
     font-size: 16px;
-    color: #ddd;
+    color: #030303;
     text-decoration: none;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #333;
   }
+  
 
   .nav-item .dropdown a:hover {
-    background-color: #444;
+    background-color: #0975ab;
     color: white;
   }
+
+  .nav-item .nav-link:hover .arrow {
+    transform: rotate(0deg); /* No arrow animation on hover in desktop */
+  }
+
 
   /* Make the links and arrow only visible when the parent is active */
   .nav-item .nav-link .arrow {
@@ -306,7 +385,7 @@ body.menu-open main {
   top: 0;
   right: 0;
   width: 100%;
-  background-color: #333;
+  background-color: #ffffff;
   z-index: 20;
   opacity: 0;
   transform: translateY(-100%);
@@ -315,7 +394,7 @@ body.menu-open main {
 
     .nav-links a {
       padding: 12px 20px;
-      color: white;
+      color: #030303;
       font-size: 16px;
       text-decoration: none;
       border: none;
@@ -375,7 +454,7 @@ body.menu-open main {
     position: absolute; /* Position the dropdown below the button */
     top: 100%; /* Position dropdown below the button */
     left: 0; /* Align to the left */
-    background-color: #333;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     width: 200px; /* Set a fixed width for the dropdown */
@@ -393,15 +472,15 @@ body.menu-open main {
     display: block; /* Make each link a block element so they stack vertically */
     padding: 10px 15px;
     font-size: 16px;
-    color: white;
+    color: #030303;
     text-decoration: none;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #030303;
   }
 
   /* Hover effect for links inside the dropdown */
   .nav-item .dropdown a:hover {
-    background-color: #444;
-    color: white;
+    background-color: #0975ab;
+    color: #ffffff;
   }
 
   /* Arrow next to the parent link */
@@ -418,7 +497,19 @@ body.menu-open main {
 }
 
 
+
+
 /* Main Content */
+.main {
+  margin-top: 60px;
+  position: relative;
+  transition: margin-top 0.4s ease;
+}
+
+body.menu-open main {
+  margin-top: 260px;
+}
+
 main {
   padding: 30px;
   max-width: 900px;
@@ -426,12 +517,15 @@ main {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
 }
 
 main h1 {
   font-size: 32px;
-  color: #0f1923;
+
+  text-decoration: underline;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 main p {
@@ -440,12 +534,14 @@ main p {
   line-height: 1.8;
 }
 
+
 /* Footer */
 .footer {
-  background-color: #333;
+  background:  #333;
   padding: 30px 20px;
-  color: white;
+  color: #ffffff;
   border-top: 5px solid #f4f6f9;
+
 }
 
 .footer-container {
@@ -462,7 +558,7 @@ main p {
 
 .footer-section h3 {
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 19px;
   color: #f4f6f9;
   font-weight: bold;
 }
@@ -470,18 +566,22 @@ main p {
 .footer-section ul {
   list-style: none;
   padding: 0;
+
 }
 
 .footer-section ul li {
+  font-size: 16px;
   margin-bottom: 10px;
+
 }
 
 .footer-section ul li a {
   color: #cce5ff;
+  transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-  color: #ffffff;
+  color: #0975ab; /* Accent color on hover */
   text-decoration: underline;
 }
 
@@ -511,7 +611,7 @@ main p {
 @media (max-width: 768px) {
   .footer {
     flex-direction: column; /* Stack items vertically */
-    text-align: center; /* Center align text */
+    text-align: left; /* Center align text */
     gap: 10px; /* Add spacing between items */
   }
 
@@ -520,8 +620,31 @@ main p {
   }
 }
 
+/* Animation for fadeIn */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #DAA520; /* Highlighted color */
+}
 
 
 
+html {
+  scroll-behavior: smooth;
+}
 
 

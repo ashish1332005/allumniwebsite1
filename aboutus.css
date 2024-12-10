@@ -14,7 +14,7 @@ html {
 body {
   font-family: 'lato', sans-serif;
   line-height: 1.6;
-  background-color: #f5f5f5; /* Subtle light background */
+  background: linear-gradient(135deg, white, rgb(205, 208, 216));
   color: #030303; /* Primary text color */
  
   margin: 0;
@@ -99,7 +99,7 @@ top: -9px;
 
   @media (max-width: 480px) {
     .navbar .logo img {
-      max-height: 55px; /* Compact for very small screens */
+      max-height: 50px; /* Compact for very small screens */
       margin-left: 1px;
       margin-top: 24px;
     }
@@ -137,7 +137,7 @@ top: -9px;
   top: 100%;
   left: 0;
   background-color: #030303;
-  color: #0e234c;
+ 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
   min-width: 200px;
@@ -498,91 +498,137 @@ body.menu-open main {
 
 
 
-
 /* Header */
-.header {
-
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.about-header {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f4f4f4;
+  color: #0e234c;
+  border-bottom: 2px solid #eaeaea;
 }
 
-.header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+.about-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-/* Main Content */
-.job-container {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: auto;
+.about-header p {
+  font-size: 1.2em;
+  color: #555555;
 }
 
-.job-list h2 {
-    font-size: 2rem;
-    color: #030303;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-    border-bottom: 2px solid #333;
-    display: inline-block;
-    padding-bottom: 5px;
+/* Sections */
+section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.jobs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
+/* Mission and Values */
+.mission-values {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
 }
 
-/* Job Card */
-.job-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.mission-values .content {
+  max-width: 45%;
+  text-align: left;
 }
 
-.job-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.mission-values ul {
+  margin-top: 10px;
+  padding-left: 20px;
 }
 
-.job-card h3 {
-    font-size: 1.5rem;
-    color: #030303;
-    margin-bottom: 10px;
-    font-weight: 600;
+.mission-values ul li {
+  margin-bottom: 10px;
+  color: #444444;
 }
 
-.job-card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #555;
+/* Team */
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.job-card button {
-    display: inline-block;
-    background-color: #003580;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
+.team-member {
+  text-align: center;
 }
 
-.job-card button:hover {
-    background-color: #002b63;
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #dddddd;
+  background: #ffffff;
+}
+
+.team-member h3 {
+  font-size: 1.1em;
+  color: #0e234c;
+  margin: 5px 0;
+}
+
+.team-member p {
+  font-size: 0.9em;
+  color: #555555;
+}
+
+/* Testimonials */
+.testimonials-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+blockquote {
+  font-style: italic;
+  color: #666666;
+  margin: 20px 0;
+  border-left: 4px solid #0e234c;
+  padding-left: 10px;
+}
+
+blockquote footer {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #888888;
+}
+
+/* Alumni Gallery */
+.alumni-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.alumni-gallery img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #eaeaea;
+  transition: transform 0.3s;
+}
+
+.alumni-gallery img:hover {
+  transform: scale(1.1);
+}
+
+/* Links */
+a {
+  color: #0e234c;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 
@@ -671,30 +717,5 @@ body.menu-open main {
   }
 }
 
-/* Animation for fadeIn */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-button {
-  transition: background-color 0.3s, transform 0.2s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-  background-color: #DAA520; /* Highlighted color */
-}
-
-
-
-html {
-  scroll-behavior: smooth;
-}
 

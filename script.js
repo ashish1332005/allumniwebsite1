@@ -1,3 +1,4 @@
+// Toggle the menu
 function toggleMenu() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
@@ -12,75 +13,81 @@ function toggleMenu() {
   // Adjust the main content's margin-top dynamically based on nav-links height
   if (navLinks.classList.contains('active')) {
     const navHeight = navLinks.offsetHeight; // Get height of nav-links
-    mainContent.style.marginTop = `${navHeight}px`; // Push content below nav-links
+    mainContent.style.marginTop = `${navHeight + 10}px`; // Push content below nav-links with additional margin
   } else {
     mainContent.style.marginTop = '0'; // Reset content position
   }
 }
 
-// Handle dropdowns (if any)
-document.querySelectorAll('.nav-item .nav-link').forEach((item) => {
-  item.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) { // Allow on mobile only
-      e.preventDefault();
-      const parent = item.parentElement;
-      parent.classList.toggle('active');
+// Handle dropdowns
+function handleDropdowns() {
+  document.querySelectorAll('.nav-item .nav-link').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) { // Allow on mobile only
+        e.preventDefault();
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      }
+    });
+  });
+}
+
+// Close menu on click outside
+function closeMenuOnClickOutside() {
+  document.addEventListener('click', (e) => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+      if (navLinks.classList.contains('active')) {
+        toggleMenu(); // Close the menu
+      }
     }
   });
-});
-// JavaScript for Image Slider
-
-// Select all slides
-const slides = document.querySelectorAll('.slider .slide');
-let currentSlide = 0;
-
-// Function to show the current slide and hide others
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.classList.add('active');
-        } else {
-            slide.classList.remove('active');
-        }
-    });
 }
 
-// Function to go to the next slide
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length; // Loop back to the first slide
-    showSlide(currentSlide);
+// Reset styles on window resize
+function resetOnResize() {
+  window.addEventListener('resize', () => {
+    const navLinks = document.querySelector('.nav-links');
+    const mainContent = document.querySelector('.main-content');
+    const body = document.body;
+
+    if (window.innerWidth > 768) {
+      navLinks.classList.remove('active');
+      body.classList.remove('menu-active');
+      mainContent.style.marginTop = '0'; // Reset content position
+    }
+  });
 }
 
-// Function to go to the previous slide
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Loop back to the last slide
-    showSlide(currentSlide);
+// Enable keyboard accessibility
+function enableKeyboardAccessibility() {
+  document.addEventListener('keydown', (e) => {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+
+    // Close menu with Escape key
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      toggleMenu();
+    }
+
+    // Open menu with Enter or Space on hamburger
+    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === hamburger) {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
 }
 
-// Automatically change slides every 3 seconds
-let autoSlideInterval = setInterval(nextSlide, 3000);
-
-// Restart auto-slide after manual navigation
-function restartAutoSlide() {
-    clearInterval(autoSlideInterval); // Stop current auto-slide
-    autoSlideInterval = setInterval(nextSlide, 3000); // Restart auto-slide
+// Initialize functions
+function initMenu() {
+  handleDropdowns();
+  closeMenuOnClickOutside();
+  resetOnResize();
+  enableKeyboardAccessibility();
 }
 
-// Event listener for manual slide navigation
-document.querySelector('#nextButton').addEventListener('click', () => {
-    nextSlide(); // Move to the next slide
-    restartAutoSlide(); // Restart auto-slide
-});
-
-document.querySelector('#prevButton').addEventListener('click', () => {
-    prevSlide(); // Move to the previous slide
-    restartAutoSlide(); // Restart auto-slide
-});
-
-// Initial display of the first slide
-showSlide(currentSlide);
-
-
-
-
+// Run the initializer
+initMenu();
 
