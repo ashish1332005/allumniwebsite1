@@ -123,8 +123,8 @@ body {
 .input-group input:focus,
 .input-group select:focus,
 .input-group textarea:focus {
-  border-color: #4caf50; /* Green Highlight */
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5); /* Green Glow */
+  border-color: #0857d7; /* Green Highlight */
+  box-shadow: 0 0 8px rgba(10, 15, 114, 0.5); /* Green Glow */
   outline: none;
 }
 
